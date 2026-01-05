@@ -31,10 +31,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install pytest pytest-cov
-      
+    
       - name: Run tests
+        working-directory: ${{ github.workspace }}
         run: |
           pytest tests/ -v --cov=app --cov-report=term
+
       
   build-and-deploy:
     needs: test
@@ -98,4 +100,4 @@ jobs:
           sleep 30
           curl -f https://$APP_URL/health || exit 1
           
-          echo "Deployment successfull!"
+          echo "Deployment successful!"
