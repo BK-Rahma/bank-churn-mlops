@@ -98,4 +98,4 @@ jobs:
           sleep 30
           curl -f https://$APP_URL/health || exit 1
           
-          echo "Deployment successful!"
+          echo "Deployment successfull!"
